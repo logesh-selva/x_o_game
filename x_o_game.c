@@ -108,7 +108,7 @@ void charector_put(char arr[3][3],char ch,int position){
 }
 int condition_check(char arr[3][3]){
     //int num=0;
-    int x1=0,o1=0,x2=0,o2=0,x3=0,o3=0;
+    int x1=0,o1=0,x2=0,o2=0,x3=0,o3=0,o4=0,x4=0;
     for(int i=0;i<3;i++){
         for(int j=0;j<3;j++){
         if(i==j){
@@ -116,6 +116,12 @@ int condition_check(char arr[3][3]){
           x1++;
           else if(arr[i][j]=='o')
           o1++;
+        }
+        if(i+j==2){
+          if(arr[i][j]=='x')
+          x4++;
+          else if(arr[i][j]=='o')
+          o4++;
         }
         if(arr[i][j]=='x')
         x2++;
@@ -126,11 +132,13 @@ int condition_check(char arr[3][3]){
         else if(arr[j][i]=='o')
         o3++;
         }
-        if(x2==3 || x3==3 || x1==3){
+        if(x2==3 || x3==3 || x1==3 || x4==3  ){
         x_Wins++;
+        //printf("\n\nPLAYER 1 WINS\n\n");
         return 1;}
-        else if(o2==3 || o3==3 || o1==3){
+        else if(o2==3 || o3==3 || o1==3 || o4==3){
         y_Wins++;
+        //printf("\n\nPLAYER 2 WINS\n\n");
         return 2;}
         x2=0,o2=0,x3=0,o3=0;
     }
